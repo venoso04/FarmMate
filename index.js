@@ -8,6 +8,8 @@ import { globalErrorHandling } from './src/middleware/asyncHandler.js';
 import { fileURLToPath } from 'url';
 import { diseaseDetectorRouter } from './src/modules/disease-detector/disease-detector.router.js';
 import { authRouter } from './src/modules/authh/auth.router.js';
+import { weatherRouter } from './src/modules/weather/weather.api.js';
+import { chatBotRouter } from './src/modules/chatBot/chatBot.controller.js';
 
 
 const app = express()
@@ -29,6 +31,8 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth',authRouter)
 app.use('/api/disease-detection', diseaseDetectorRouter);
+app.use('/api/weather', weatherRouter);
+app.use('/api/chatbot', chatBotRouter);
 
 // //page not found
 // app.all("*", (req, res, next) => {

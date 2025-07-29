@@ -9,6 +9,7 @@
     "nodemon": "^2.0.22"
   },
   "dependencies": {
+    "axios": "^1.11.0",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",

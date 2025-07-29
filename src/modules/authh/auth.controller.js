@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 import dotenv from 'dotenv';
 import { User } from '../../../db/models/user.model.js';
-import { signupValidation ,loginValidation, updateUserValidation} from './auth.validation.js';
+// import { signupValidation ,loginValidation, updateUserValidation} from './auth.validation.js';
 import sendEmail from '../../utils/common/sendEmail.js';
 
 dotenv.config();
@@ -139,14 +139,14 @@ if (!emailSent) {
 // Login Controller
 export const login = async (req, res) => {
     try {
-        // Validate input
-        const { error } = loginValidation.validate(req.body);
-        if (error) {
-            return res.status(400).json({
-                success: false,
-                message: error.details[0].message
-            });
-        }
+        // // Validate input
+        // const { error } = loginValidation.validate(req.body);
+        // if (error) {
+        //     return res.status(400).json({
+        //         success: false,
+        //         message: error.details[0].message
+        //     });
+        // }
 
         const { email, password } = req.body;
 

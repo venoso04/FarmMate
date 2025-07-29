@@ -3,6 +3,7 @@
 import express from 'express';
 import { uploadMemory, handleMulterError } from '../../utils/multer.config.js';
 import { analyzeDisease, getDiseaseHistory } from './disease-detector.controller.js';
+import { authenticateToken } from '../../middleware/authentication.js';
 
 export const diseaseDetectorRouter = express.Router();
 
@@ -11,7 +12,7 @@ export const diseaseDetectorRouter = express.Router();
  * @desc    Analyze plant disease from uploaded image  
  * @access  Public (or add auth middleware if needed)
  */
-diseaseDetectorRouter.post('/analyze', uploadMemory.single('image'), analyzeDisease);
+diseaseDetectorRouter.post('/analyze',authenticateToken, uploadMemory.single('image'), analyzeDisease);
 
 /**
  * @route   GET /api/disease-detection/history/:userId
